@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.Sobre"
+             Title="Sobre"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+        <Label Text=" MauiAppHotel" FontSize="30"  TextColor="{StaticResource Tertiary}" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Label Text="Desenvolvido por:" HorizontalOptions="Center" />
+        <Label Text="Raynan Marinho de Melo Bereza" TextColor="{StaticResource Tertiary}" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center" />
+        <Label Text="Etec Professor André Bogasian" HorizontalOptions="Center" />
+        <Label Text="Curso: Desenvolvimento de Sistemas" HorizontalOptions="Center" />
+        <Label Text="Ano: 2026" HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
