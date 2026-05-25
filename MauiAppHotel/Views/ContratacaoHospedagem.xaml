@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource Tertiary}">
 
-    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+    <VerticalStackLayout VerticalOptions="Center"
                          Padding="10"
                          Spacing="10">
 
@@ -25,45 +25,46 @@
 
                     <Label Grid.Row="0" Grid.Column="1"
                            TextColor="{StaticResource Tertiary}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_adultos}"/>
+                           Text="{Binding QtdAdultos}"/>
 
                     <Stepper Grid.Row="0" Grid.Column="2"
                              x:Name="stp_adultos"
-                             Minimum="0"
+                             Minimum="1"
                              Maximum="10"
-                             Increment="1" />
+                             Increment="1" 
+                             Value="{Binding QtdAdultos}"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
                            Text="Crianças:" />
 
                     <Label Grid.Row="1" Grid.Column="1"
                            TextColor="{StaticResource Tertiary}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_criancas}"/>
+                           Text="{Binding QtdCriancas}"/>
 
                     <Stepper Grid.Row="1" Grid.Column="2"
                              x:Name="stp_criancas"
                              Minimum="0"
                              Maximum="10"
-                             Increment="1" />
+                             Increment="1" 
+                             Value="{Binding QtdCriancas}"/>
                 </Grid>
 
                 <Frame Padding="10" Margin="10">
                     <VerticalStackLayout>
 
-                        <Label Text="Escolha sua Suíte"
+                        <Label Text="Escolha seu Quarto"
                                TextTransform="Uppercase"
                                FontSize="Subtitle"
                                TextColor="{StaticResource Tertiary}"/>
 
                         <Picker x:Name="pck_quarto"
-                                Title="Selecione sua Acomodação" />
+                                Title="Selecione sua Acomodação" 
+                                ItemDisplayBinding="{Binding Descricao}"
+                                SelectedItem="{Binding QuartoSelecionado}"/>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Frame Padding="10"
-                       Margin="10">
+                <Frame Padding="10" Margin="10">
                     <VerticalStackLayout Spacing="10">
 
                         <Label Text="Período da Estadia"
@@ -71,25 +72,28 @@
                                FontSize="Subtitle"
                                TextColor="{StaticResource Tertiary}"/>
 
-                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <HorizontalStackLayout HorizontalOptions="Center">
                             <Label Text="Check-in:" />
                             <DatePicker x:Name="dtpck_checkin"
-                                        Format="dd/MM/yyyy" />
+                                        Format="dd/MM/yyyy" 
+                                        Date="{Binding DataCheckIn}"
+                                        MinimumDate="{Binding DataMinimaCheckIn}"/>
                         </HorizontalStackLayout>
 
-                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <HorizontalStackLayout HorizontalOptions="Center">
                             <Label Text="Check-out:" />
                             <DatePicker x:Name="dtpck_checkout"
-                                        Format="dd/MM/yyyy" />
+                                        Format="dd/MM/yyyy" 
+                                        Date="{Binding DataCheckOut}"
+                                        MinimumDate="{Binding DataCheckIn}"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Frame>
 
-                <Button Text="Avançar"  />
+                <Button Text="Avançar" Clicked="OnAvancarClicked" />
 
             </VerticalStackLayout>
         </Frame>
 
     </VerticalStackLayout>
-
 </ContentPage>
